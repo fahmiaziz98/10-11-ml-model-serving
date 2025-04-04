@@ -42,55 +42,7 @@ This repository is a **Proof of Concept (PoC)** for serving **Machine Learning (
 └── README.md                  # Project documentation
 ```
 
----
-
-## Installation
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/fahmiaziz98/10-11-ml-model-serving.git
-cd 10-11-ml-model-serving
-```
-
-### 2. Configure Environment Variables
-
-Copy the `.env.example` file to `.env` and fill in your AWS credentials:
-
-```env
-AWS_ACCESS_KEY_ID=your-access-key-id
-AWS_SECRET_ACCESS_KEY=your-secret-access-key
-BUCKET_NAME=your-s3-bucket-name
-```
-
-### 3. Install Python Dependencies
-
-Make sure you're using **Python 3.11**:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## ▶️ Running the Application
-
-### Run FastAPI (REST API):
-
-```bash
-uvicorn app:app --host 0.0.0.0 --port 7860
-```
-
-### Run Streamlit UI:
-```bash
-streamlit run streamlit_app.py
-```
-
----
-
 ## API Endpoints
-
-You can use tools like Postman, curl, or Python's `httpx` to test the endpoints.
 
 | Task                      | Endpoint URL                             | Method |
 |---------------------------|------------------------------------------|--------|
@@ -106,28 +58,6 @@ You can use tools like Postman, curl, or Python's `httpx` to test the endpoints.
   "url": ["https://example.com/sample.jpg"]
 }
 ```
----
-## Docker Support
-
-### Build Docker Image
-
-```bash
-docker build -t ml-model-restapi .
-```
-
-### Run Docker Container
-```bash
-docker run -p 7860:7860 ml-model-restapi
-```
 
 ## Deploy API via Hugging Face Spaces (Recommended)
 For a step-by-step guide on [deploying applications on Hugging Face Spaces](https://huggingface.co/blog/HemanthSai7/deploy-applications-on-huggingface-spaces), please visit Deploy Applications on Hugging Face Spaces.
-
-
-## License
-This project is licensed under the **MIT License**.
-
-
-## Contributing
-Contributions are welcome!  
-Feel free to submit a **pull request** or open an **issue** for discussions, improvements, or bug fixes.
