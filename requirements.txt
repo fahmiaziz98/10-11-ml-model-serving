@@ -1,3 +1,5 @@
+streamlit==1.42.1
+requests==2.32.3
 boto3==1.37.27
 torch==2.6.0
 pillow==11.1.0
