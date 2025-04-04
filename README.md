@@ -67,5 +67,5 @@ If you encounter any issues with the API, please visit the [Hugging Face Space](
 }
 ```
 
-## Deploy API via Hugging Face Spaces (Recommended)
-For a step-by-step guide on [deploying applications on Hugging Face Spaces](https://huggingface.co/blog/HemanthSai7/deploy-applications-on-huggingface-spaces), please visit Deploy Applications on Hugging Face Spaces.
+## Deploy API via HuggingFace Spaces (Recommended)
+For a step-by-step guide on deploying applications on HuggingFace Spaces, please visit [Deploy Applications on HuggingFace Spaces](https://huggingface.co/blog/HemanthSai7/deploy-applications-on-huggingface-spaces)
