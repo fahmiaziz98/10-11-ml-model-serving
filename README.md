@@ -7,7 +7,15 @@ This repository is a **Proof of Concept (PoC)** for serving **Machine Learning (
 - Human **Pose Image Classification**
 
 ---
+## Client & Server
 
+If you encounter any issues with the API, please visit the [Hugging Face Space](https://huggingface.co/spaces/fahmiaziz/ml-model-restapi) and restart the application.
+
+- **Streamlit UI**: [https://ml-model-serving-ui.streamlit.app/](https://ml-model-serving-ui.streamlit.app/)  
+  Access the interactive user interface to test the models easily.
+
+- **API Documentation**: [https://fahmiaziz-ml-model-restapi.hf.space/docs](https://fahmiaziz-ml-model-restapi.hf.space/docs)  
+  Explore the API documentation and test endpoints directly via Swagger UI.
 ## Features
 
 - **Sentiment Analysis**: Predicts if a given text expresses positive or negative sentiment.
