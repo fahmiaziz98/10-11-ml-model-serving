@@ -120,6 +120,8 @@ docker build -t ml-model-restapi .
 docker run -p 7860:7860 ml-model-restapi
 ```
 
+## Deploy API via Hugging Face Spaces (Recommended)
+For a step-by-step guide on [deploying applications on Hugging Face Spaces](https://huggingface.co/blog/HemanthSai7/deploy-applications-on-huggingface-spaces), please visit Deploy Applications on Hugging Face Spaces.
 
 
 ## License
