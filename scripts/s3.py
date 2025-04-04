@@ -17,6 +17,16 @@ s3 = boto3.client(
 )
 
 def download_model_from_s3(local_path: str, s3_prefix: str):
+    """
+    Downloads a model from S3 to the specified local path.
+
+    Args:
+        local_path (str): The local path to download the model to.
+        s3_prefix (str): The S3 prefix of the model to download.
+
+    Raises:
+        RuntimeError: If there is an error downloading the model from S3.
+    """
     try:
         if os.path.exists(local_path) and os.listdir(local_path):
             logger.info(f"Model {local_path} already exists. Skipping download.")
@@ -39,11 +49,24 @@ def download_model_from_s3(local_path: str, s3_prefix: str):
         logger(f"Failed to download model from S3: {e}")
         raise RuntimeError(f"Error downloading model from S3: {e}")
 
+
 def upload_image_to_s3(
         file_name, 
         s3_prefix="ml-images", 
         object_name=None
     ):
+    """
+    Uploads an image to S3 and returns a presigned URL for the object.
+
+    Args:
+        file_name (str): The file name of the image to upload.
+        s3_prefix (str): The S3 prefix to use for the object name.
+        object_name (str, optional): The object name to use for the S3 key.
+            If not provided, the object name will be the same as the file name.
+
+    Returns:
+        str: The presigned URL for the S3 object.
+    """
     if object_name is None:
         object_name = os.path.basename(file_name)
 

@@ -1,7 +1,6 @@
 import os
 import time
-from typing import Union
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from scripts.data_model import ClassificationInput, ClassificationOutput
 from utils.pipeline import load_model
 
@@ -17,12 +16,22 @@ MODEL_PATH = os.path.join(BASE_DIR, "ml-models", "tinybert-disaster-tweet/")
     description="Classify the disaster of a given text using a pre-trained model."
 )
 def disaster_classification(input: ClassificationInput)-> ClassificationOutput:
+    """
+    Classify the disaster of a given text using a pre-trained model.
+
+    Args:
+        input (ClassificationInput): The input data containing the user_id and text.
+
+    Returns:
+        ClassificationOutput: The output data containing the user_id, text, model_name, sentiment, score, and prediction_time.
+
+    """
     try:
         pipe = load_model(MODEL_PATH)
         start = time.time()
         output = pipe(input.text)
         end = time.time()
-        prediction_time = int((end-start)*1000)
+        prediction_time = int((end - start) * 1000)
 
         labels = [x['label'] for x in output]
         scores = [x['score'] for x in output]
@@ -37,4 +46,4 @@ def disaster_classification(input: ClassificationInput)-> ClassificationOutput:
         )
         
     except Exception as e:
-        return {"error": f"Failed to process text classification: {str(e)}"}, 500
+        raise HTTPException(status_code=500, detail=f"Failed to process text classification: {e}")

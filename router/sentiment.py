@@ -17,12 +17,22 @@ MODEL_PATH = os.path.join(BASE_DIR, "ml-models", "tinybert-sentiment-analysis/")
     description="Classify the sentiment of a given text using a pre-trained model."
 )
 def sentiment_classification(input: ClassificationInput)-> ClassificationOutput:
+    """
+    Classify the sentiment of a given text using a pre-trained model.
+
+    Args:
+        input (ClassificationInput): The input data containing the user_id and text.
+
+    Returns:
+        ClassificationOutput: The output data containing the user_id, text, model_name, sentiment, score, and prediction_time.
+
+    """
     try:
         pipe = load_model(MODEL_PATH)
         start = time.time()
         output = pipe(input.text)
         end = time.time()
-        prediction_time = int((end-start)*1000)
+        prediction_time = int(( end - start) * 1000)
 
         labels = [x['label'] for x in output]
         scores = [x['score'] for x in output]
@@ -37,4 +47,4 @@ def sentiment_classification(input: ClassificationInput)-> ClassificationOutput:
         )
     
     except Exception as e:
-        return {"error": f"Failed to process text classification: {str(e)}"}, 500
+        raise HTTPException(status_code=500, detail=f"Failed to process text classification: {e}")

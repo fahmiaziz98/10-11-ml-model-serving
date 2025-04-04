@@ -1,6 +1,15 @@
 import logging
 
 def get_logger(name: str):
+    """
+    Gets a logger with the given name, and configures it if it has never been configured before.
+
+    Args:
+        name (str): The name of the logger to get.
+
+    Returns:
+        A configured logger with the given name.
+    """
     logger = logging.getLogger(name)
     if not logger.handlers: 
         handler = logging.StreamHandler()

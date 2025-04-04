@@ -1,9 +1,5 @@
 import os
 import time
-import requests
-from PIL import Image
-from io import BytesIO
-
 from fastapi import APIRouter, HTTPException
 from scripts.data_model import ImageInput, ImageOutput
 from utils.pipeline import load_model
@@ -21,17 +17,24 @@ MODEL_PATH = os.path.join(BASE_DIR, "ml-models", "vit-human-pose-classification/
     description="Classify the image using a pre-trained model."
 )
 def image_classification(input: ImageInput)-> ImageOutput:
+    """
+    Classify the image using a pre-trained model.
+    
+    Args:
+        input (ImageInput): The input data containing the image URL and user ID.
+    
+    Returns:
+        ImageOutput: The output data containing the labels, scores, prediction time, and other info.
+    """
     try:
         pipe = load_model(MODEL_PATH, is_image_model=True)
         image = input.url
-        
         logger.info(f"Image URLs: {image[-1]}")
         
         start = time.time()
         output = pipe(image[-1])
         end = time.time()
-        
-        prediction_time = int((end-start)*1000)
+        prediction_time = int((end - start) * 1000) 
         
         labels = [x["label"] for x in output]
         scores = [x["score"] for x in output]
