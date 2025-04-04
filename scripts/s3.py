@@ -1,6 +1,9 @@
 import os
 import boto3
 from utils.log import logger
+from dotenv import load_dotenv
+load_dotenv()
+
 
 aws_access_key = os.getenv("AWS_ACCESS_KEY_ID") 
 aws_key_pw =  os.getenv("AWS_SECRET_ACCESS_KEY") 
