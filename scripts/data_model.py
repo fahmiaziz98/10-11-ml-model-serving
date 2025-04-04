@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, HttpUrl
 from typing import List
 
 
@@ -8,7 +8,7 @@ class ClassificationInput(BaseModel):
 
 class ImageInput(BaseModel):
     user_id: str
-    url: List[str]
+    url: List[HttpUrl]
 
 
 class ClassificationOutput(BaseModel):
@@ -21,7 +21,7 @@ class ClassificationOutput(BaseModel):
 
 class ImageOutput(BaseModel):
     user_id: str
-    url: List[str]
+    url: List[HttpUrl]
     model_name: str
     label: List[str]
     score: List[float]
