@@ -67,5 +67,8 @@ If you encounter any issues with the API, please visit the [Hugging Face Space](
 }
 ```
 
+## Load Testing with Locust
+API load testing has been performed using Locust to evaluate the performance and scalability of the endpoints. For detailed instructions and results, please refer to the [Documentation](locust.md).
+
 ## Deploy API via HuggingFace Spaces (Recommended)
 For a step-by-step guide on deploying applications on HuggingFace Spaces, please visit [Deploy Applications on HuggingFace Spaces](https://huggingface.co/blog/HemanthSai7/deploy-applications-on-huggingface-spaces)
