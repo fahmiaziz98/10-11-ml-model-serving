@@ -14,6 +14,9 @@ If you encounter any issues with the API, please visit the [Hugging Face Space](
 - **Streamlit UI**: [https://ml-model-serving-ui.streamlit.app/](https://ml-model-serving-ui.streamlit.app/)  
   Access the interactive user interface to test the models easily.
 
+- **Space for API**: [https://huggingface.co/spaces/fahmiaziz/ml-model-restapi](https://huggingface.co/spaces/fahmiaziz/ml-model-restapi)   
+  restart space if sleep :)
+
 - **API Documentation**: [https://fahmiaziz-ml-model-restapi.hf.space/docs](https://fahmiaziz-ml-model-restapi.hf.space/docs)  
   Explore the API documentation and test endpoints directly via Swagger UI.
 ## Features
