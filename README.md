@@ -67,6 +67,83 @@ If you encounter any issues with the API, please visit the [Hugging Face Space](
 }
 ```
 
+## Setup and Installation
+
+### Prerequisites
+- Python 3.11 or later
+- pip (Python package manager)
+- Docker (optional, for containerized deployment)
+
+### Installation Steps
+
+1. **Install UV**
+   ```bash
+   curl -Ls https://astral.sh/uv/install.sh | bash
+   export PATH="$HOME/.local/bin:$PATH"
+   ```
+2. **Clone the repository**:
+   ```bash
+   git clone https://github.com/fahmiaziz98/10-11-ml-model-serving.git
+   cd 10-11-ml-model-serving
+   ```
+3. **Set up virtual env**
+   ```bash
+   uv venv .venv
+   source .venv/bin/activate
+   ```
+4. **Install dependency**
+   ```bash
+   uv pip install -r requirements.txt
+   ```
+5. **Set Environment variable**
+   ```bash
+   cp .env.example .env
+   ```
+6. **Run API locally**
+   ```bash
+   make run-api
+   ```
+   The API will be available at **http://127.0.0.1:7860/docs**
+7. **Run Streamlit UI**
+   ```bash
+   make run-streamlit
+   ```
+The Streamlit interface will be available at **http://localhost:8501**
+
+## Docker Usage
+
+1. **Build Docker Image**
+   ```bash
+   make docker-build
+   ```
+
+2. **Run Docker Container**
+   ```bash
+   make docker-run
+   ```
+Once running, the API will be accessible at **http://localhost:7860/docs**
+
+3. **Clean Docker Container**
+   ```bash
+   make docker-clean
+   ```
+This stops and removes the container named `ml-model-serving-container`.
+
+## Load Testing with Locust
+
+1. Start Locust:
+   ```bash
+   make run-locust
+   ```
+
+2. Open your browser and go to:
+**http://localhost:8089**
+
+3. Enter the number of users, spawn rate, and target host (e.g., `http://localhost:7860`), then click **Start swarming**.
+
+---
+
+
 ## Load Testing with Locust
 API load testing has been performed using Locust to evaluate the performance and scalability of the endpoints. For detailed instructions and results, please refer to the [Documentation](locust.md).
 
