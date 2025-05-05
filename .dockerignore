@@ -1,0 +1,11 @@
+# Ignore README files
+README*
+*.md
+
+# Ignore Makefile
+Makefile
+
+# Ignore specific folders
+api_testing/
+images/
+asset/

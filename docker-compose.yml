@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    # container_name: fastapi_app
+    ports:
+      - "7860:7860"
+    expose:
+      - "7860"
+    volumes:
+      - ./aws:/home/user/.aws:ro  # Non-root
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    # container_name: nginx_proxy
+    ports:
+      - "80:80"
+    depends_on:
+      - app
